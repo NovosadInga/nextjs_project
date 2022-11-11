@@ -13,7 +13,7 @@ const Socials: FC<ISocialsProps> = ({ socials }) => {
 			{
 				socials && socials.map(({ id, icon, path }) => {
 					return <li key={id} className='px-3'>
-						<a href={path} target="_blank">
+						<a href={path} target="_blank" rel="noreferrer">
 							<i className={`fa-brands fa-${icon} text-4xl text-cyan-dark hover:text-сyan`}></i>
 						</a>
 					</li>

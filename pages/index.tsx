@@ -7,17 +7,27 @@ import Socials from "../components/Socials";
 import img from "../public/img.jpg"
 import { ISocial } from "../types";
 export const getStaticProps: GetStaticProps = async (context) => {
-  const res = await fetch(`${process.env.API_HOST}/socials/`)
-  const socials: ISocial[] = await res.json()
-  if (!socials) {
-    return {
-      notFound: true
+  try {
+
+
+    const res = await fetch(`${process.env.API_HOST}/socials/`)
+    const socials: ISocial[] = await res.json()
+    if (!socials) {
+      return {
+        notFound: true
+      }
     }
-  }
-  return {
-    props: {
-      socials
-    },
+    return {
+      props: {
+        socials
+      },
+    }
+  } catch {
+    return {
+      props: {
+        socials: null
+      },
+    }
   }
 }
 interface IHomeProps {
